@@ -3,7 +3,7 @@
     <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Sweater</title>
+        <title>Final_Project</title>
     </head>
     <body>
     <#nested>
