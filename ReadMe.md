@@ -1,8 +1,8 @@
 DB
 1) Open MySql CLC
-2) mysql> create database db_example; -- Creates the new database
-3) mysql> create user 'springuser'@'%' identified by 'ThePassword';-- Creates the user 
-4) mysql> grant all on db_example.* to 'springuser'@'%'; -- Gives all privileges to the new user on the newly created database
+create database db_example;
+create user 'springuser'@'%' identified by 'ThePassword';
+grant all on db_example.* to 'springuser'@'%';
 
 
 

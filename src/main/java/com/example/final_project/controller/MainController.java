@@ -14,19 +14,20 @@ import java.util.Map;
 
 @Controller
 public class MainController {
-
     @Autowired
-    private MassageRepo massageRepo;
+    private MassageRepo messageRepo;
 
     @GetMapping("/")
     public String greeting(Map<String, Object> model) {
-                return "greeting";
+        return "greeting";
     }
 
     @GetMapping("/main")
     public String main(Map<String, Object> model) {
-        Iterable<Massage> massages = massageRepo.findAll();
-        model.put("massages", massages);
+        Iterable<Massage> messages = messageRepo.findAll();
+
+        model.put("messages", messages);
+
         return "main";
     }
 
@@ -34,29 +35,32 @@ public class MainController {
     public String add(
             @AuthenticationPrincipal User user,
             @RequestParam String text,
-            @RequestParam String tag, Map<String, Object> model
-    ) {
-        Massage massage = new Massage(text, tag, user);
+            @RequestParam String tag,
+            Map<String, Object> model) {
+        Massage message = new Massage(text, tag, user);
 
-        massageRepo.save(massage);
+        messageRepo.save(message);
 
-        Iterable<Massage> massages = massageRepo.findAll();
-        model.put("massages", massages);
+        Iterable<Massage> messages = messageRepo.findAll();
+
+        model.put("messages", messages);
 
         return "main";
     }
+
     @PostMapping("filter")
     public String filter(@RequestParam String filter, Map<String, Object> model) {
-        Iterable<Massage> massages;
+        Iterable<Massage> messages;
 
-        if (filter != null && !filter.isEmpty()){
-            massages =massageRepo.findByTag(filter);
-        }else{
-            massages=massageRepo.findAll();
+        if (filter != null && !filter.isEmpty()) {
+            messages = messageRepo.findByTag(filter);
+        } else {
+            messages = messageRepo.findAll();
         }
 
-        model.put("massages", massages);
+        model.put("messages", messages);
 
         return "main";
     }
 }
+
