@@ -2,7 +2,7 @@ package com.example.final_project.domain;
 import javax.persistence.*;
 
 @Entity
-public class Massage {
+public class Message {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
@@ -16,10 +16,10 @@ public class Massage {
 
 
 
-    public Massage() {
+    public Message() {
     }
 
-    public Massage (String text, String tag, User user) {
+    public Message(String text, String tag, User user) {
         this.author = user;
         this.text = text;
         this.tag = tag;
