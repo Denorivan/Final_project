@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 @Configuration
 @EnableWebSecurity
+//@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
