@@ -47,7 +47,7 @@ public class MainController {
         return "main";
     }
 
-    @PostMapping("redirect:/main")
+    @PostMapping("/main")
     public String add(
             @RequestParam("file") MultipartFile file,
             @AuthenticationPrincipal User user,
